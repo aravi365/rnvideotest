@@ -17,19 +17,25 @@ import {
   useColorScheme,
   View,
   Button,
+  NativeModules,
 } from 'react-native';
 import VideoPlayer from './IOSVideoView';
+
+//access video manager for controlling playback
+const {PsVideoViewManager: VideoManager} = NativeModules;
 
 const App = () => {
   const [videoUri, setVideoUri] = React.useState(
     'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
   );
+  // 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+
   const [showVideo, setShowVideo] = React.useState(true);
   const videoRef = React.useRef(null);
-  console.log('video ref', videoRef);
+  // console.log('video ref', videoRef);
   return (
     <SafeAreaView style={styles.safeArea}>
-      {showVideo ? (
+      {showVideo && videoUri ? (
         <VideoPlayer
           ref={videoRef}
           style={styles.videoPlayer}
@@ -39,11 +45,14 @@ const App = () => {
       ) : null}
       <Button
         title="Set new Video"
-        onPress={() =>
-          setVideoUri(
+        onPress={() => {
+          // setVideoUri(
+          //   'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+          // );
+          VideoManager.playAnotherVideo(
             'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
-          )
-        }
+          );
+        }}
       />
       <Button
         title="toggle video"
