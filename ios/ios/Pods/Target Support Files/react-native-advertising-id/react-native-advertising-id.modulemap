@@ -1,0 +1,6 @@
+module react_native_advertising_id {
+  umbrella header "react-native-advertising-id-umbrella.h"
+
+  export *
+  module * { export * }
+}

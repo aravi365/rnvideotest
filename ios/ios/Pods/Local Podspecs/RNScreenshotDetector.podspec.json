@@ -1,0 +1,21 @@
+{
+  "name": "RNScreenshotDetector",
+  "version": "1.1.0",
+  "summary": "A tool for detecting ios screenshots on iOS",
+  "license": "MIT",
+  "authors": "gcarling & iamacup + others",
+  "homepage": "https://github.com/iamacup/react-native-screenshot-detect",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/iamacup/react-native-screenshot-detector.git",
+    "tag": "v1.1.0"
+  },
+  "source_files": "ios/**/*.{h,m}",
+  "dependencies": {
+    "React": [
+
+    ]
+  }
+}

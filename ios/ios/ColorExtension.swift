@@ -1,0 +1,26 @@
+//
+//  ColorExtention.swift
+//  react-native-ps-video
+//
+//  Created by Mzalih on 02/02/22.
+//
+
+import Foundation
+
+extension UIColor {
+        convenience init(hexColor: String)  {
+          let stringScanner = Scanner(string: hexColor)
+
+          if(hexColor.hasPrefix("#")) {
+            stringScanner.scanLocation = 1
+          }
+          var color: UInt32 = 0
+          stringScanner.scanHexInt32(&color)
+
+          let r = CGFloat(Int(color >> 16) & 0x000000FF)
+          let g = CGFloat(Int(color >> 8) & 0x000000FF)
+          let b = CGFloat(Int(color) & 0x000000FF)
+
+            self.init(red: r / 255.0, green: g / 255.0, blue: b / 255.0, alpha: 1)
+        }
+}

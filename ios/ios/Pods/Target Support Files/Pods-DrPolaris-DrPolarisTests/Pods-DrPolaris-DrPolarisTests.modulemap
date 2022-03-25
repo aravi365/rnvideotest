@@ -1,0 +1,6 @@
+module Pods_DrPolaris_DrPolarisTests {
+  umbrella header "Pods-DrPolaris-DrPolarisTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
